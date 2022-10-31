@@ -1,13 +1,26 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <meta charset="utf-8">
+    <title>Servlet Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h2>Personal Info:</h2>
+<form method="post" action="ServletDemo">
+    <input type="text" name="firstName" placeholder="FirstName">
+    <input type="text" name="lastName" placeholder="LastName">
+    <input type="number" name="age" placeholder="Your Age">
+    <input type="text" name="phone" placeholder="Phone Number">
+
+    <button type="submit">SUBMIT</button>
+
+</form>
 </body>
 </html>
