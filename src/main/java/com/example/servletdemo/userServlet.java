@@ -1,42 +1,30 @@
 package com.example.servletdemo;
 
-import java.io.*;
-
+import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
-    private String message;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet(name = "userServlet", value = "/userServlet")
+public class userServlet extends HttpServlet {
     private String firstname;
     private String lastname;
     private Long age;
     private String phone;
 
-    public void init() {
-        message = "Hello World!";firstname="Nelson";lastname="Attah";age= Long.valueOf(37);phone="+237037176436";
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("This resource is not available directly.");
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-        /*
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("<tr></tr>");
-        out.println("<td>FirstName</td>");
-        out.println("<td>"+ firstname + "</td>");
-        out.println("<td>LastName</td>");
-        out.println("<td>"+ lastname + "</td>");
-        out.println("<td>Age</td>");
-        out.println("<td>"+ age + "</td>");
-        out.println("<td>Phone</td>");
-        out.println("<td>"+ phone + "</td>");
-
-        out.println("</body></html>"); */
-
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter pw = response.getWriter();
 
@@ -68,11 +56,4 @@ public class HelloServlet extends HttpServlet {
                 + "</html>");
 
     }
-
-    public void destroy() {
-    }
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 }
